@@ -140,11 +140,19 @@ $(".hashtags").linky({
     linkTo: "instagram"
   });}
 
-
-addPostsToContainer(addPosts, false);
-linkifyTweets();
 function loadMore(){
   getNewPosts();
   addPostsToContainer(addPosts, true);
   linkifyTweets();
 }
+
+addPostsToContainer(addPosts, false);
+linkifyTweets();
+
+$('.banners').slick({
+    arrows: false,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 4000,
+});
+
