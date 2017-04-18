@@ -1,0 +1,29 @@
+.filters{
+  text-align: center;
+}
+
+.container-posts{margin: 0 auto;padding-top:50px;}
+.post{
+  list-style: none;
+  border: 1px solid black;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 30px 10px 15px;
+  margin-bottom: 30px;
+}
+
+img{
+  width: 100%;
+}
+
+.active.button, .button:hover{
+  background-color: #a0ccff ;
+  color: white;
+}
+.active.button:hover{
+  color: white;
+}
+
+.cent-button{
+  text-align:center;
+}
