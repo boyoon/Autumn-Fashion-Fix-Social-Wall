@@ -16,20 +16,17 @@ var sortedPosts = postsArray.sort(function(a,b){
 });
 var iterateBy = 6;
 var addPosts = sortedPosts.slice(0,10);
-var currentPosition = 0;
+var positionLocation = 0;
 var sortedPostsDouble = sortedPosts.concat(sortedPosts);
 
 
 function getNewPosts(){
-  if(currentPosition +iterateBy <= postsArray.length){
-    addPosts = sortedPosts.slice(currentPosition, currentPosition+iterateBy);
-    currentPosition=currentPosition+iterateBy;
-    console.log(currentPosition);
+  if(positionLocation +iterateBy < postsArray.length){
+    addPosts = sortedPosts.slice(positionLocation, positionLocation+iterateBy);
+    positionLocation=positionLocation+iterateBy;
   }else{    
-    addPosts = sortedPostsDouble.slice(currentPosition, currentPosition+iterateBy);
-    currentPosition=currentPosition-postsArray.length;
-    console.log(sortedPostsDouble.length);
-    console.log(currentPosition);
+    addPosts = sortedPostsDouble.slice(positionLocation, positionLocation+iterateBy);
+    positionLocation=positionLocation+iterateBy-postsArray.length;
   }
 }
 
@@ -143,11 +140,19 @@ $(".hashtags").linky({
     linkTo: "instagram"
   });}
 
-
-addPostsToContainer(addPosts, false);
-linkifyTweets();
 function loadMore(){
   getNewPosts();
   addPostsToContainer(addPosts, true);
   linkifyTweets();
 }
+
+addPostsToContainer(addPosts, false);
+linkifyTweets();
+
+$('.banners').slick({
+    arrows: false,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 4000,
+});
+
